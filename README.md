@@ -5,20 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* to destroy generated element: rails destroy  controller StaticPages home help
 
-* System dependencies
+* generate model: rails generate model User name:string email:string
 
-* Configuration
+* migrate data: rails db:migrate
 
-* Database creation
+* undo a single db migration: rails db:rollback
 
-* Database initialization
+* rollback completely: rails db:migrate VERSION=0
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* special rails function provide: <% provide(:title, "Home") %>, <%= yield(:title) %>
