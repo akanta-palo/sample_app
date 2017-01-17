@@ -16,3 +16,7 @@ Things you may want to cover:
 * rollback completely: rails db:migrate VERSION=0
 
 * special rails function provide: <% provide(:title, "Home") %>, <%= yield(:title) %>
+
+* rails generate new controller: rails generate controller ControllerName <optional action names>
+
+* attr accessor allows retrieve (get) and assign (set)
