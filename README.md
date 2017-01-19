@@ -26,3 +26,29 @@ Things you may want to cover:
 * assert_no_difference will result in no difference of the user.count at the start and the end of test.
 
 * assert_template checks that failed submission will re-render the new action
+
+## SSL for Rails
+# Force all access to the app over SSL, use Strict-Transport-Security,
+# and use secure cookies.
+config.force_ssl = true
+
+* Heroku uses a pure-Ruby webserver called WEBrick, which is easy to set up and run but isn’t good at handling
+significant traffic.
+
+# Replace config/puma.rb default with the following:
+* workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
+threads threads_count, threads_count
+
+preload_app!
+
+rackup      DefaultRackup
+port        ENV['PORT']     || 3000
+environment ENV['RACK_ENV'] || 'development'
+
+on_worker_boot do
+  # Worker specific setup for Rails 4.1+
+  # See: https://devcenter.heroku.com/articles/
+  # deploying-rails-applications-with-the-puma-web-server#on-worker-boot
+  ActiveRecord::Base.establish_connection
+end
