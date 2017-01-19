@@ -20,3 +20,9 @@ Things you may want to cover:
 * rails generate new controller: rails generate controller ControllerName <optional action names>
 
 * attr accessor allows retrieve (get) and assign (set)
+
+* debug(params) if Rails.env.development? to display the debug log
+
+* assert_no_difference will result in no difference of the user.count at the start and the end of test.
+
+* assert_template checks that failed submission will re-render the new action
